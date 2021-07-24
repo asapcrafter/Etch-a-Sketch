@@ -1,0 +1,12 @@
+title {
+    color: green;
+}
+.flexGrid {
+    display: grid;
+    background-color: yellow;
+}
+div {
+    background-color: aqua;
+    flex: 1;
+    width: 1/16%;
+}
