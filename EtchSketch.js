@@ -2,39 +2,82 @@ const body = document.body;
 
 const flexGrid = document.querySelector(".grid");
 
-//const d = document.createElement('div');
+var root = document.querySelector(':root');
 
+var gridSize = 20;
+
+function setGridSize() {
+    root.style.setProperty('--gridSize', gridSize)
+}
 //Grid creation 
 (function () {
-    for (i = 1 ; i < (16*16) + 1; i++) {
+    for (i = 1 ; i < (gridSize * gridSize) + 1; i++) {
         var d = document.createElement(`div`);
             d.setAttribute('id', `box`)
-            addColor(d);
+            changeColor(d);
             flexGrid.appendChild(d);
-        // d.innerHTML = `B${i}`; 
+        d.innerHTML = `${i}`; 
     }
 }) ();
 
-function addColor(d) { 
+function changeColor(d) { 
     d.addEventListener('mouseover', event => {
-        event.target.style.backgroundColor = "orange";
+        event.target.style.backgroundColor = "var(--customPurple)";
         event.stopPropagation();
         setTimeout(function() {
             event.target.style.backgroundColor = '';
-        }, 500);
+        }, 5000);
     });
 };
 
 const btnRestart = document.querySelector('#restartBtn');
     btnRestart.onclick = () => {
         resetCanvas();
-
+        promptUser();
     };
 
 function resetCanvas() {
-    var grid = document.querySelector('.grid');
-    var x = grid.querySelectorAll('#box');
-    x.style.backgroundColor = "white";
+    document.querySelectorAll('#box').forEach(e => {
+        e.style.backgroundColor = 'var(--customGreen)';
+    });
+};
+
+function promptUser() {
+    var inputStr = prompt("Enter new canvas size (1-100)", "16");
+    var inputNum = Number (inputStr);
+        if (inputStr == null) {
+            return true;
+        } else if (isNaN(inputStr)) {
+            alert("Invalid input");
+        } else if (inputNum > 99) {
+            alert("This value is too large");
+        } else {
+            alert("Nice number");
+            changeGrid(inputNum);
+        }
+};
+
+function changeGrid(x) {
+    gridSize = x;
+    createGrid();
+    createGridTwo();
+    setGridSize();
+    return gridSize;
 }
 
+function createGrid() {
+    document.querySelectorAll('#box').forEach(e => {
+        e.remove();
+    });
+};
+
+function createGridTwo() {
+    for (i = 1 ; i < (gridSize * gridSize) + 1; i++) {
+            var d = document.createElement(`div`);
+                d.setAttribute('id', `box`)
+                changeColor(d);
+                flexGrid.appendChild(d);
+            d.innerHTML = `${i}`; 
+        }; 
+};
 

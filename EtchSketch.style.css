@@ -1,16 +1,26 @@
 title {
-    color: green;
+}
+:root {
+    --customGreen: #3dff8e; 
+    --customPurple: rgb(234, 148, 255);
+    --gridSize: 20;
+    --content-width: 400;
 }
 .grid {
     display: grid;
+        grid-template-columns: repeat(var(--gridSize), 1fr);
+        grid-template-rows: repeat(var(--gridSize), 1fr);
+        grid-auto-columns: auto;
+        grid-auto-rows: auto;
+        height: 100%;
     background-color: white;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    height: 100%;
-    grid-gap: 1px;
 }
 div {
-    background-color: aqua;
-    border-color: black;
     aspect-ratio: 1;
+    background-color: var(--customGreen);
+    border-color: black;
+    color: rgba(88, 88, 88, 0.89);
+    text-align: center;
+
 }
+
