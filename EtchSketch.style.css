@@ -1,12 +1,15 @@
 title {
     color: green;
 }
-.flexGrid {
+.grid {
     display: grid;
     background-color: yellow;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    height: 100%;
+    grid-gap: 1px;
 }
 div {
     background-color: aqua;
-    flex: 1;
-    width: 1/16%;
+    border-color: black;
 }
