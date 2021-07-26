@@ -8,15 +8,18 @@ var gridSize = 20;
 
 function setGridSize() {
     root.style.setProperty('--gridSize', gridSize)
+
+var display = document.querySelector('#display');
+    display.innerHTML = `The canvas size: ${gridSize}`;
 }
-//Grid creation 
+//Grid creation and append
 (function () {
     for (i = 1 ; i < (gridSize * gridSize) + 1; i++) {
         var d = document.createElement(`div`);
             d.setAttribute('id', `box`)
             changeColor(d);
             flexGrid.appendChild(d);
-        d.innerHTML = `${i}`; 
+//        d.innerHTML = `${i}`; 
     }
 }) ();
 
@@ -52,7 +55,6 @@ function promptUser() {
         } else if (inputNum > 99) {
             alert("This value is too large");
         } else {
-            alert("Nice number");
             changeGrid(inputNum);
         }
 };
@@ -77,7 +79,7 @@ function createGridTwo() {
                 d.setAttribute('id', `box`)
                 changeColor(d);
                 flexGrid.appendChild(d);
-            d.innerHTML = `${i}`; 
+        //    d.innerHTML = `${i}`; 
         }; 
 };
 

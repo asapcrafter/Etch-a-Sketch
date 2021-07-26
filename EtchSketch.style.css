@@ -21,6 +21,6 @@ div {
     border-color: black;
     color: rgba(88, 88, 88, 0.89);
     text-align: center;
-
+    gap: 1px;
 }
 
