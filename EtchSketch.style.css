@@ -1,5 +1,4 @@
-title {
-}
+
 :root {
     --customGreen: #3dff8e; 
     --customPurple: rgb(234, 148, 255);
@@ -22,5 +21,9 @@ div {
     color: rgba(88, 88, 88, 0.89);
     text-align: center;
     gap: 1px;
+}
+body {
+    height: 1000px;
+    width: 1000px;
 }
 
