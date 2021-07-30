@@ -6,3 +6,5 @@ Features:
   1. Mouse over event will change the color of each square div
   2. Button to reset all squres to its default color
   3. Option to change the canvas's grid size (min: 1x1, max: 100x100)
+
+Live demo: https://asapcrafter.github.io/Etch-a-Sketch/
